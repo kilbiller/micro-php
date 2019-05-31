@@ -18,12 +18,10 @@
         "zendframework/zend-httphandlerrunner": "^1.1"
     },
     "autoload": {
-		"psr-4": {
-			"Micro\\": "src/"
-		}
+        "files": ["src/micro.php"]
 	},
     "scripts": {
-        "start": "php -S localhost:8000 -t tests"
+        "examples": "php -S localhost:8000 -t examples"
     },
     "config": {
         "process-timeout": 0

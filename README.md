@@ -26,15 +26,19 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require 'vendor/autoload.php';
 
-use \Micro\Micro;
+use function \micro\{createServer, micro};
 
-$server = new Micro();
-
-$server->serve(function (Request $request, Response $response) {
-    $response->getBody()->write("Hello World.");
-    return $response;
-});
+createServer(micro(function (Request $req, Response $res) {
+    $res->getBody()->write("Hello World.");
+    return $res;
+}));
 ```
+
+## Advanced
+
+It's possible to use a custom psr7 implementation by implementing your own createServer.
+
+$fn => $fn($req, $res)
 
 ## Thanks
 
